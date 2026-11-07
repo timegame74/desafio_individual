@@ -66,4 +66,4 @@ python3 docs/generar_informe.py  # regenera informe.md y resultados.json
 4. Espere 1–2 minutos. La app quedará en `https://TU_USUARIO.github.io/tanque-agua-la-paz/`.
 
 ## Autor
-**[MI NOMBRE COMPLETO]** · Materia: Métodos Numéricos · Ingeniería en Sistemas (Informática) · La Paz, Bolivia
+**[Valencia Peralta Rafael Andres]** · Materia: Métodos Numéricos · Ingeniería en Sistemas (Informática) · La Paz, Bolivia
