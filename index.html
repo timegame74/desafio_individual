@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanque comunitario de agua – Heun vs RK4</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Tanque comunitario de agua en un barrio de La Paz</h1>
+    <p>Desafío de Métodos Numéricos · Solución analítica vs. Heun vs. RK4</p>
+  </header>
+
+  <main>
+    <section class="panel" id="problema">
+      <h2>El problema</h2>
+      <p>En muchos barrios de ladera de La Paz el agua llega por turnos y se almacena en un tanque comunitario.
+        Queremos saber cuánto tarda el tanque en llenarse hasta el 90 % de su nivel estable y cuánta agua habrá a las 24 horas.</p>
+      <p class="ecuacion"><strong>dV/dt = Q − k·V</strong>, &nbsp; V(0) = V₀</p>
+      <p><strong>V</strong>: volumen (L) · <strong>t</strong>: tiempo (h) · <strong>Q</strong>: caudal de ingreso (L/h) · <strong>k</strong>: tasa de consumo/pérdida (1/h).</p>
+      <p><strong>Solución analítica:</strong> V(t) = Q/k + (V₀ − Q/k)·e<sup>−kt</sup></p>
+      <p><strong>Supuestos:</strong> Q constante; consumo y pérdidas proporcionales al volumen almacenado; sin desbordamiento (capacidad suficiente).
+        <strong>Todos los valores por defecto son hipotéticos</strong>: no son mediciones reales ni predicciones comprobadas.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Parámetros</h2>
+      <form id="formulario" novalidate>
+        <div class="grilla">
+          <label>V₀ – Volumen inicial <span class="u">(L)</span>
+            <input type="number" id="V0" value="500" step="any"></label>
+          <label>Q – Caudal de ingreso <span class="u">(L/h)</span>
+            <input type="number" id="Q" value="500" step="any"></label>
+          <label>k – Tasa de consumo/pérdida <span class="u">(1/h)</span>
+            <input type="number" id="k" value="0.1" step="any"></label>
+          <label>h – Tamaño de paso <span class="u">(h)</span>
+            <input type="number" id="h" value="2" step="any"></label>
+          <label>T – Tiempo final <span class="u">(h)</span>
+            <input type="number" id="T" value="24" step="any"></label>
+          <label>N – Número de familias <span class="u">(familias)</span>
+            <input type="number" id="N" value="40" step="any"></label>
+          <label>c – Consumo mínimo por familia <span class="u">(L/familia)</span>
+            <input type="number" id="c" value="75" step="any"></label>
+        </div>
+        <div class="botones">
+          <button type="submit">Calcular</button>
+          <button type="reset" id="restablecer" class="sec">Restablecer valores</button>
+        </div>
+      </form>
+      <div id="errores" class="error" role="alert" hidden></div>
+    </section>
+
+    <div id="resultados" hidden>
+      <section class="panel">
+        <h2>Resultados</h2>
+        <div id="tarjetas" class="tarjetas"></div>
+        <h3>Interpretación</h3>
+        <div id="interpretacion"></div>
+        <h3>Error máximo por método</h3>
+        <div class="scroll"><table id="resumenErr"></table></div>
+      </section>
+
+      <section class="panel">
+        <h2>Gráfica de las tres curvas</h2>
+        <div class="grafico"><canvas id="gSol"></canvas></div>
+        <h2>Gráfica de errores absolutos</h2>
+        <div class="grafico"><canvas id="gErr"></canvas></div>
+      </section>
+
+      <section class="panel">
+        <h2>Tabla comparativa por iteración</h2>
+        <p class="nota">El error relativo se muestra como "—" cuando el valor exacto es 0.</p>
+        <div class="scroll alta"><table id="tabla"></table></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Autor: [MI NOMBRE COMPLETO] · Métodos Numéricos · Ingeniería en Sistemas · La Paz, Bolivia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
