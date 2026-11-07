@@ -1,7 +1,7 @@
 # Tanque comunitario de agua en un barrio de La Paz
 ## Modelado con EDO de primer orden: solución analítica vs. Heun vs. RK4
 
-**Autor:** [MI NOMBRE COMPLETO] · **Materia:** Métodos Numéricos · **Carrera:** Ingeniería en Sistemas (Informática) · La Paz, Bolivia · 6 de noviembre de 2026
+**Autor:** [Valencia Peralta Rafael Andres] · **Materia:** Métodos Numéricos · **Carrera:** Ingeniería en Sistemas (Informática) · La Paz, Bolivia · 6 de noviembre de 2026
 
 > **Aviso:** todos los parámetros de este informe son **hipotéticos** y se usan solo con fines académicos. Los resultados no son predicciones comprobadas del comportamiento de un tanque real.
 
